@@ -9,18 +9,29 @@ Feature extraction is an important and fundamental step before creating and trai
 We also experimented with the word2Vec method along with unigram and bigram approaches for feature extraction from texts, but only with the SVM algorithm (both linear and rbf) because we did not observe a significant difference between feature extraction methods. 
 For CNN and LSTM neural networks, we extracted features using the tokenizer and pad_sequence. We also used them with BILSTM neural networks, but with the addition of W2V.
 ### Machine Learning
-After preparing the dataset and extracting the features, we divided it into 80% training data and 20% testing data. We applied several different algorithms with various feature extraction methods as follows:
+After preparing the dataset and extracting the features, we divided it into 80% training data and 20% testing data. We applied several different algorithms with various feature extraction methods as follows: <br>
  	1. SVM (kernel ‘linear’, C=1) with Tf_Idf.
+  <br>
  	2. SVM (kernel ‘linear’, C=1) with W2V and Ngrams.
+  <br>
  	3. SVM (kernel ‘rbf’, C=0.5) with W2V and Ngrams. <strong> note: </strong> C in SVM refers to regularization.
+  <br>
  	4. KNN (k=5) with Tf_Idf.
+  <br>
  	5. Random Forest (number of trees are 100) with Tf_Idf.
+  <br>
  	6. Decision Tree with Tf_Idf.
+  <br>
  	7. Logistic Regression with Tf_Idf.
+  <br>
 ### Deep Learning
 For deep learning, we split the data into 80% training, 10% validation, and 10% testing. We created several models using neural networks: CNN, LSTM, and BILSTM.
+  <br>
 First model: This model consists of six layers in the following order: embedding, conv1d, global max pooling, dense (64), dropout (0.5), and dense (1) as an output layer with a sigmoid function. The model was trained with a learning rate (lr = 0.001) using the Adam optimizer and techniques like early stopping and reduce learning rate. It was trained for ten epochs (epochs = 10) with a batch size of 32.
+  <br>
 Second model: This model consists of three layers in the following order: embedding, LSTM (64 units with dropout = 0.2) and dense (1) as an output layer with a sigmoid function. The model was trained with a learning rate (lr = 0.001) using the Adam optimizer. It was trained for ten epochs (epochs = 10) with a batch size of 64.
 Third model: This model consists of three layers in the following order: embedding, BILSTM (64 units with dropout = 0.2) and dense (1) as an output layer with a sigmoid function. The model was trained with a learning rate (lr = 0.001) using the Adam optimizer. It was trained for ten epochs (epochs = 10) with a batch size of 64. We used learning rate scheduler to reduce learning rate within training.
+ <br>
 Fourth model: This model consists of eight layers in the following order: embedding, conv1d (256), max pooling (5), LSTM (128), BILSTM(64), dense (128), dropout (0.5), and dense (1) as an output layer with a sigmoid function. The model was trained with a learning rate (lr = 0.001) using the Adam optimizer and techniques like early stopping and reduce learning rate. It was trained for ten epochs (epochs = 10) with a batch size of 32.
+ <br>
 The last model: This model consists of three layers in the following order: embedding, BILSTM (128 units with dropout = 0.2) and dense (1) as an output layer with a sigmoid function. The model was trained with a learning rate (lr = 0.001) using the Adam optimizer. It was trained for ten epochs (epochs = 10) with a batch size of 32. We used learning rate scheduler to reduce learning rate within training.
