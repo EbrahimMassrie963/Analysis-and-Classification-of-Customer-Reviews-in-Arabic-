@@ -10,13 +10,13 @@ We also experimented with the word2Vec method along with unigram and bigram appr
 For CNN and LSTM neural networks, we extracted features using the tokenizer and pad_sequence. We also used them with BILSTM neural networks, but with the addition of W2V.
 ### Machine Learning
 After preparing the dataset and extracting the features, we divided it into 80% training data and 20% testing data. We applied several different algorithms with various feature extraction methods as follows:
- 	* SVM (kernel ‘linear’, C=1) with Tf_Idf.
- 	* SVM (kernel ‘linear’, C=1) with W2V and Ngrams.
- 	* SVM (kernel ‘rbf’, C=0.5) with W2V and Ngrams. <strong> note: </strong> C in SVM refers to regularization.
- 	* KNN (k=5) with Tf_Idf.
- 	* Random Forest (number of trees are 100) with Tf_Idf.
- 	* Decision Tree with Tf_Idf.
- 	* Logistic Regression with Tf_Idf.
+ 	1. SVM (kernel ‘linear’, C=1) with Tf_Idf.
+ 	2. SVM (kernel ‘linear’, C=1) with W2V and Ngrams.
+ 	3. SVM (kernel ‘rbf’, C=0.5) with W2V and Ngrams. <strong> note: </strong> C in SVM refers to regularization.
+ 	4. KNN (k=5) with Tf_Idf.
+ 	5. Random Forest (number of trees are 100) with Tf_Idf.
+ 	6. Decision Tree with Tf_Idf.
+ 	7. Logistic Regression with Tf_Idf.
 ### Deep Learning
 For deep learning, we split the data into 80% training, 10% validation, and 10% testing. We created several models using neural networks: CNN, LSTM, and BILSTM.
 First model: This model consists of six layers in the following order: embedding, conv1d, global max pooling, dense (64), dropout (0.5), and dense (1) as an output layer with a sigmoid function. The model was trained with a learning rate (lr = 0.001) using the Adam optimizer and techniques like early stopping and reduce learning rate. It was trained for ten epochs (epochs = 10) with a batch size of 32.
